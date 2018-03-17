@@ -1,8 +1,6 @@
 package models;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 @Entity
 @Table(name = "managers")
@@ -28,6 +26,7 @@ public class Manager extends StaffMember {
         this.prefferedFormationType = type;
     }
 
+    @OneToOne(fetch = FetchType.EAGER, mappedBy = "managers")
     public Team getTeam() {
         return team;
     }

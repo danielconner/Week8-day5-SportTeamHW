@@ -1,7 +1,10 @@
 package models;
 
+import javax.persistence.*;
 import java.util.Set;
 
+@Entity
+@Table(name = "competitions")
 public class Competition {
 
     private int id;
@@ -17,6 +20,9 @@ public class Competition {
         this.prize = prize;
     }
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id")
     public int getId() {
         return id;
     }
@@ -25,6 +31,7 @@ public class Competition {
         this.id = id;
     }
 
+    @Column(name = "name")
     public String getName() {
         return name;
     }
@@ -33,6 +40,7 @@ public class Competition {
         this.name = name;
     }
 
+    @Column(name = "prize")
     public String getPrize() {
         return prize;
     }
@@ -41,6 +49,7 @@ public class Competition {
         this.prize = prize;
     }
 
+    @OneToMany(fetch = FetchType.EAGER, mappedBy = "competitions")
     public Set<Team> getTeams() {
         return teams;
     }

@@ -1,8 +1,6 @@
 package models;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 @Entity
 @Table(name = "players")
@@ -14,9 +12,10 @@ public class Player extends StaffMember {
     public Player() {
     }
 
-    public Player(String name, int age, int salary, String position) {
+    public Player(String name, int age, int salary, String position, Team team) {
         super(name, age, salary);
         this.position = position;
+        this.team = team;
     }
 
     @Column(name = "position")
@@ -28,6 +27,8 @@ public class Player extends StaffMember {
         this.position = position;
     }
 
+    @ManyToOne
+    @JoinColumn(name = "team_id", nullable = false)
     public Team getTeam() {
         return team;
     }
