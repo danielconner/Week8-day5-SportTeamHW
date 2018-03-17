@@ -75,7 +75,7 @@ public class Team {
         this.colours = colours;
     }
 
-    @Column(name = "in_competition?")
+    @Column(name = "in_competition")
     public Boolean getInComp() {
         return inComp;
     }
@@ -84,7 +84,7 @@ public class Team {
         this.inComp = inComp;
     }
 
-    @OneToMany(mappedBy = "teams", fetch = FetchType.EAGER)
+    @OneToMany(fetch = FetchType.EAGER, mappedBy = "team")
     public Set<Player> getPlayers() {
         return players;
     }
@@ -94,7 +94,7 @@ public class Team {
     }
 
     @ManyToOne
-    @JoinColumn(name = "competition_id", nullable = false)
+    @JoinColumn(name = "competitions_id", nullable = false)
     public Competition getCompetition() {
         return competition;
     }

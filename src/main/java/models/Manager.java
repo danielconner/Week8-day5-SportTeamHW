@@ -26,7 +26,7 @@ public class Manager extends StaffMember {
         this.prefferedFormationType = type;
     }
 
-    @OneToOne(fetch = FetchType.EAGER, mappedBy = "managers")
+    @OneToOne(fetch = FetchType.LAZY, mappedBy = "manager")
     public Team getTeam() {
         return team;
     }

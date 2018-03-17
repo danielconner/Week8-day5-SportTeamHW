@@ -49,7 +49,7 @@ public class Competition {
         this.prize = prize;
     }
 
-    @OneToMany(fetch = FetchType.EAGER, mappedBy = "competitions")
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "competition")
     public Set<Team> getTeams() {
         return teams;
     }

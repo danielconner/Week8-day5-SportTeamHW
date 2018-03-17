@@ -1,8 +1,5 @@
 
-import models.Director;
-import models.FormationType;
-import models.Manager;
-import models.Team;
+import models.*;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -14,12 +11,14 @@ public class TeamTest {
     Team team;
     Manager manager;
     Director director;
+    Competition competition;
 
     @Before
     public void setUp() throws Exception {
+        Competition competition = new Competition("Scottish Cup", "Big Trophy");
         manager = new Manager("Brendan Rodgers", 48, 30000, FormationType.TIKITAKA);
         director = new Director("Peter Lawell", 55, 50000, 20000000);
-        team = new Team("Celtic", manager, director, "Green/White", true);
+        team = new Team("Celtic", manager, director, "Green/White", true, competition);
     }
 
     @Test

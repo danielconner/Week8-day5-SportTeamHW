@@ -1,5 +1,8 @@
 package db;
 
+import models.Competition;
+import models.Player;
+import models.Team;
 import org.hibernate.Criteria;
 import org.hibernate.HibernateException;
 import org.hibernate.Session;
@@ -85,6 +88,26 @@ public class DBHelper {
         session = HibernateUtil.getSessionFactory().openSession();
         List<T> results = null;
         Criteria cr = session.createCriteria(classType);
+        cr.setResultTransformer(Criteria.DISTINCT_ROOT_ENTITY);
+        results = getList(cr);
+        return results;
+    }
+
+    public static List<Player> getPlayersByTeam(Team team){
+        session = HibernateUtil.getSessionFactory().openSession();
+        List<Player> squad = null;
+        Criteria cr = session.createCriteria(Player.class);
+        cr.add(Restrictions.eq("team", team));
+        squad = getList(cr);
+        return squad;
+    }
+
+    public static List<Team> getTeamsInComp(Competition competition){
+        session = HibernateUtil.getSessionFactory().openSession();
+        List<Team> results = null;
+        Criteria cr = session.createCriteria(Team.class);
+        cr.add(Restrictions.eq("competition", competition));
+        cr.setResultTransformer(Criteria.DISTINCT_ROOT_ENTITY);
         results = getList(cr);
         return results;
     }

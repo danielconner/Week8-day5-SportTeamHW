@@ -1,4 +1,4 @@
-import models.Player;
+import models.*;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -8,10 +8,18 @@ import static org.junit.Assert.assertTrue;
 public class PlayerTest {
 
     Player player;
+    Team team;
+    Manager manager;
+    Director director;
+    Competition competition;
 
     @Before
     public void setUp() throws Exception {
-        player = new Player("Moussa Dembele", 24, 15000, "Striker");
+        competition = new Competition("Scottish Cup", "Big Trophy");
+        manager = new Manager("Brendan Rodgers", 48, 30000, FormationType.TIKITAKA);
+        director = new Director("Peter Lawell", 55, 50000, 20000000);
+        team = new Team("Celtic", manager, director, "Green/White", true, competition);
+        player = new Player("Moussa Dembele", 24, 15000, "Striker", team);
     }
 
     @Test

@@ -26,7 +26,7 @@ public class Director extends StaffMember{
         this.budget = budget;
     }
 
-    @OneToOne(fetch = FetchType.EAGER, mappedBy = "directors")
+    @OneToOne(fetch = FetchType.LAZY, mappedBy = "director")
     public Team getTeam() {
         return team;
     }
