@@ -8,10 +8,9 @@ public class Manager extends StaffMember {
     public Manager() {
     }
 
-    public Manager(String name, int age, int salary, FormationType type, Team team) {
+    public Manager(String name, int age, int salary, FormationType type) {
         super(name, age, salary);
         this.prefferedFormationType = type;
-        this.team = team;
     }
 
     public String prefferedFormationType() {

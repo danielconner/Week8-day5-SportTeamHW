@@ -8,10 +8,9 @@ public class Director extends StaffMember{
     public Director() {
     }
 
-    public Director(String name, int age, int salary, int budget, Team team) {
+    public Director(String name, int age, int salary, int budget) {
         super(name, age, salary);
         this.budget = budget;
-        this.team = team;
     }
 
     public int getBudget() {

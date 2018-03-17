@@ -8,10 +8,9 @@ public class Player extends StaffMember {
     public Player() {
     }
 
-    public Player(String name, int age, int salary, String position, Team team) {
+    public Player(String name, int age, int salary, String position) {
         super(name, age, salary);
         this.position = position;
-        this.team = team;
     }
 
     public String getPosition() {
