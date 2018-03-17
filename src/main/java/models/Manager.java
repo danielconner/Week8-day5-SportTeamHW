@@ -1,5 +1,11 @@
 package models;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Table;
+
+@Entity
+@Table(name = "managers")
 public class Manager extends StaffMember {
 
     private FormationType prefferedFormationType;
@@ -13,6 +19,7 @@ public class Manager extends StaffMember {
         this.prefferedFormationType = type;
     }
 
+    @Column(name = "formation")
     public String prefferedFormationType() {
         return this.prefferedFormationType.getFormation();
     }

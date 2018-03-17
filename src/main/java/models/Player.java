@@ -1,5 +1,11 @@
 package models;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Table;
+
+@Entity
+@Table(name = "players")
 public class Player extends StaffMember {
 
     private String position;
@@ -13,6 +19,7 @@ public class Player extends StaffMember {
         this.position = position;
     }
 
+    @Column(name = "position")
     public String getPosition() {
         return position;
     }

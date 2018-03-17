@@ -1,5 +1,11 @@
 package models;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Table;
+
+@Entity
+@Table(name = "directors")
 public class Director extends StaffMember{
 
     private int budget;
@@ -13,6 +19,7 @@ public class Director extends StaffMember{
         this.budget = budget;
     }
 
+    @Column(name = "budget")
     public int getBudget() {
         return budget;
     }
