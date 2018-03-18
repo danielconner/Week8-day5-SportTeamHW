@@ -12,6 +12,7 @@ public class Team {
     private Manager manager;
     private Director director;
     private String colours;
+    private int leaguePoints;
     private Boolean inComp;
     private Set<Player> players;
     private Competition competition;
@@ -19,11 +20,12 @@ public class Team {
     public Team() {
     }
 
-    public Team(String name, Manager manager, Director director, String colours, Boolean inComp, Competition competition) {
+    public Team(String name, Manager manager, Director director, String colours, int leaguePoints, Boolean inComp, Competition competition) {
         this.name = name;
         this.manager = manager;
         this.director = director;
         this.colours = colours;
+        this.leaguePoints = leaguePoints;
         this.inComp = inComp;
         this.competition = competition;
     }
@@ -73,6 +75,15 @@ public class Team {
 
     public void setColours(String colours) {
         this.colours = colours;
+    }
+
+    @Column(name = "league_points")
+    public int getLeaguePoints() {
+        return leaguePoints;
+    }
+
+    public void setLeaguePoints(int leaguePoints) {
+        this.leaguePoints = leaguePoints;
     }
 
     @Column(name = "in_competition")

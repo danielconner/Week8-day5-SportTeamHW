@@ -18,7 +18,7 @@ public class PlayerTest {
         competition = new Competition("Scottish Cup", "Big Trophy");
         manager = new Manager("Brendan Rodgers", 48, 30000, FormationType.TIKITAKA);
         director = new Director("Peter Lawell", 55, 50000, 20000000);
-        team = new Team("Celtic", manager, director, "Green/White", true, competition);
+        team = new Team("Celtic", manager, director, "Green/White", 67, true, competition);
         player = new Player("Moussa Dembele", 24, 15000, "Striker", team);
     }
 

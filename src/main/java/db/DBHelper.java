@@ -7,6 +7,9 @@ import org.hibernate.Criteria;
 import org.hibernate.HibernateException;
 import org.hibernate.Session;
 import org.hibernate.Transaction;
+import org.hibernate.criterion.Order;
+import org.hibernate.criterion.Projection;
+import org.hibernate.criterion.Projections;
 import org.hibernate.criterion.Restrictions;
 
 import java.util.List;
@@ -107,6 +110,16 @@ public class DBHelper {
         List<Team> results = null;
         Criteria cr = session.createCriteria(Team.class);
         cr.add(Restrictions.eq("competition", competition));
+        cr.setResultTransformer(Criteria.DISTINCT_ROOT_ENTITY);
+        results = getList(cr);
+        return results;
+    }
+
+    public static List<Team> sortByLeaguePoints(){
+        session = HibernateUtil.getSessionFactory().openSession();
+        List<Team> results = null;
+        Criteria cr = session.createCriteria(Team.class);
+        cr.addOrder(Order.desc("leaguePoints"));
         cr.setResultTransformer(Criteria.DISTINCT_ROOT_ENTITY);
         results = getList(cr);
         return results;

@@ -15,10 +15,10 @@ public class TeamTest {
 
     @Before
     public void setUp() throws Exception {
-        Competition competition = new Competition("Scottish Cup", "Big Trophy");
+        competition = new Competition("Scottish Cup", "Big Trophy");
         manager = new Manager("Brendan Rodgers", 48, 30000, FormationType.TIKITAKA);
         director = new Director("Peter Lawell", 55, 50000, 20000000);
-        team = new Team("Celtic", manager, director, "Green/White", true, competition);
+        team = new Team("Celtic", manager, director, "Green/White",68 ,true, competition);
     }
 
     @Test
@@ -45,5 +45,10 @@ public class TeamTest {
     @Test
     public void canCheckStillInComp(){
         assertTrue("true", team.getInComp());
+    }
+
+    @Test
+    public void canGetLeaguePoints() {
+        assertEquals(68, team.getLeaguePoints());
     }
 }
