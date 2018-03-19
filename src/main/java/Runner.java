@@ -58,5 +58,7 @@ public class Runner {
         List<Team> teamsInCompetition = DBHelper.getTeamsInComp(competition);
 
         List<Team> sortByLeaguePoints = DBHelper.sortByLeaguePoints();
+
+        Manager foundManager = DBHelper.find(Manager.class, manager1.getId());
     }
 }
